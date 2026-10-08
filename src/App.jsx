@@ -42,16 +42,29 @@ export const App = () => {
                 good === selectedGood ? 'has-background-success-light' : ''
               }
             >
-              <td>
-                <button
-                  data-cy="AddButton"
-                  type="button"
-                  className="button"
-                  onClick={() => setGood(good)}
-                >
-                  {good === selectedGood ? '-' : '+'}
-                </button>
-              </td>
+              {good === selectedGood ? (
+                <td>
+                  <button
+                    data-cy="RemoveButton"
+                    type="button"
+                    className="button is-info"
+                    onClick={() => setGood('')}
+                  >
+                    -
+                  </button>
+                </td>
+              ) : (
+                <td>
+                  <button
+                    data-cy="AddButton"
+                    type="button"
+                    className="button"
+                    onClick={() => setGood(good)}
+                  >
+                    +
+                  </button>
+                </td>
+              )}
 
               <td data-cy="GoodTitle" className="is-vcentered">
                 {good}
